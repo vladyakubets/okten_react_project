@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Comment from "../Comment/Comment";
-import getDataJsonPlaceholder, {apiComments} from "../../api/api";
+import getDataJsonPlaceholder from "../../api/api";
 
 
 const Comments = () => {

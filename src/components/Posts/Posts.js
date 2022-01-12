@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Post from "../Post/Post";
-import getDataJsonPlaceholder, {apiPosts} from "../../api/api";
+import getDataJsonPlaceholder from "../../api/api";
 
 
 const Posts = () => {

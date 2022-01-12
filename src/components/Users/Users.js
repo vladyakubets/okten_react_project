@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import User from "../User/User";
-import getDataJsonPlaceholder, {apiUsers} from "../../api/api";
+import getDataJsonPlaceholder from "../../api/api";
 
 const Users = () => {
     const [users, setUsers] = useState([])

@@ -1,0 +1,8 @@
+.launch {
+    display: flex;
+    width: 95%;
+    margin: 10px auto;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+}

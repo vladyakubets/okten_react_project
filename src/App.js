@@ -13,8 +13,8 @@ function App() {
     return (
         <div className="App">
             {
-                launches.map((launch, index) => launch.launch_year !== 2020 ?
-                    <Launch key={launch.launch_date_unix + '' + index} launch={launch}/> : null)
+                launches.map((launch, index) =>
+                    <Launch key={launch.launch_date_unix + '' + index} launch={launch}/>)
             }
         </div>
     );

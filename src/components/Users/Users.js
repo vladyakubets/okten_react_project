@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import User from "../User/User";
+import getDataJsonPlaceholder, {apiUsers} from "../../api/api";
 
 const Users = () => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(res => res.json())
-            .then(res => setUsers(res))
+        getDataJsonPlaceholder('users', setUsers)
     }, [])
 
     return (

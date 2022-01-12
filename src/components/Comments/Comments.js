@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import Comment from "../Comment/Comment";
+import getDataJsonPlaceholder, {apiComments} from "../../api/api";
 
 
-const Posts = () => {
+const Comments = () => {
     const [comments, setComments] = useState([])
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(res => res.json())
-            .then(res => setComments(res))
+        getDataJsonPlaceholder('comments', setComments)
     }, [])
 
     return (
@@ -20,4 +19,4 @@ const Posts = () => {
     );
 };
 
-export default Posts;
+export default Comments;

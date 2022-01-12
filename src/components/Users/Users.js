@@ -10,7 +10,7 @@ const Users = () => {
     }, [])
 
     return (
-        <div className={"users"}>
+        <div className="users">
             {
                 users.map(user => <User key={user.id} name={user.name} surname={user.surname} email={user.email}
                                         address={user.address}/>)

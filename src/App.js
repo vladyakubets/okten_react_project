@@ -7,7 +7,7 @@ function App() {
 
     return (
         <div className="App">
-            <div className={'topBox'}>
+            <div className="topBox">
                 <Users/>
                 <Posts/>
             </div>

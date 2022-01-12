@@ -11,7 +11,7 @@ const Comments = () => {
     }, [])
 
     return (
-        <div className={'comments'}>
+        <div className="comments">
             {
                 comments.map(comment => <Comment key={comment.id} name={comment.name} body={comment.body} email={comment.email} postId={comment.postId}/>)
             }

@@ -11,7 +11,7 @@ const Posts = () => {
     }, [])
 
     return (
-        <div className={"posts"}>
+        <div className="posts">
             {
                 posts.map(post => <Post key={post.id} body={post.body} title={post.title} userId={post.userId}/>)
             }

@@ -16,7 +16,6 @@ function App() {
 
     const find = (e) => {
         e.preventDefault()
-        console.log(formData);
         const filtered = users.filter(({
                                            name,
                                            username,
@@ -24,7 +23,6 @@ function App() {
                                        }) => name.toLowerCase().indexOf(formData?.name.toLowerCase()) !== -1 &&
             username?.toLowerCase().indexOf(formData.userName.toLowerCase()) !== -1 &&
             email?.toLowerCase().indexOf(formData.email.toLowerCase()) !== -1)
-        console.log(filtered);
         setFoundUsers(filtered);
 
     }

@@ -1,6 +1,6 @@
-import './App.css';
 import {useEffect, useState} from "react";
-import {logDOM} from "@testing-library/react";
+
+import './App.css';
 import Users from "./components/Users/Users";
 import {userService} from "./services/user.service";
 

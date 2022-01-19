@@ -1,0 +1,19 @@
+.input-box{
+    margin: 5px 0;
+}
+
+.form button{
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 6px 10px;
+}
+
+input [text='text'] {
+
+}

@@ -1,0 +1,20 @@
+.header{
+    min-height: 70px;
+    background: darkorchid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.header a{
+    color: aliceblue;
+    font-size: 25px;
+    text-decoration: none;
+
+
+}
+.header a[class="active"]{
+    text-decoration: underline;
+    color: #67fdd0;
+}

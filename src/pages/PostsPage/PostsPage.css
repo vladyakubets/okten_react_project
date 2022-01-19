@@ -1,0 +1,11 @@
+.posts{
+    display: flex;
+    height: calc( 100vh - 130px );
+
+}
+.posts > div:first-child{
+    overflow-y: scroll;
+}
+.posts > div{
+    width: 50%;
+}

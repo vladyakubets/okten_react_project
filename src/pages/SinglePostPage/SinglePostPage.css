@@ -1,0 +1,10 @@
+.single-post{
+    height: 100%;
+}
+.single-post > div{
+    height: 49%;
+}
+
+.single-post ul{
+    margin-top: 0;
+}

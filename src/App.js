@@ -1,7 +1,8 @@
+import {useState} from "react";
+
 import './App.css';
 import Cars from "./components/Cars/Cars";
 import Header from "./components/Header/Header";
-import {useState} from "react";
 
 function App() {
     const [newCar, setNewCar] =useState(false)

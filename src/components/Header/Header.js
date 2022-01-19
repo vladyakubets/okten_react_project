@@ -3,11 +3,9 @@ import Modal from "../Modal/Modal";
 
 import './Header.css'
 import {carsService} from "../../services/cars.service";
-import {useForm} from "react-hook-form";
 
 const Header = ({ setNewCar, newCar }) => {
     const [isOpened, setIsOpened] = useState(false);
-    const [form, setForm] = useState({model: '', price: '', year: ''})
 
 
 

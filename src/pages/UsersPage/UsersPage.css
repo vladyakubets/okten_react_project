@@ -1,0 +1,10 @@
+.users{
+    display: flex;
+    height: calc( 100vh - 130px );
+}
+.users > div:first-child{
+    overflow-y: scroll;
+}
+.users > div{
+    width: 50%;
+}

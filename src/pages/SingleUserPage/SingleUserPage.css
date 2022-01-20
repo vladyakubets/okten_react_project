@@ -1,0 +1,10 @@
+.single-user{
+    height: 100%;
+}
+.single-user > div{
+    height: 49%;
+}
+
+.single-user ul{
+    margin-top: 0;
+}

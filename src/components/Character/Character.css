@@ -1,0 +1,19 @@
+.character img{
+    max-width: 190px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.character{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 160px;
+    min-width: 160px;
+    min-height: 150px;
+    margin: 10px;
+    padding: 10px 10px;
+    background: #009d9d;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}

@@ -1,0 +1,36 @@
+.page-info{
+    text-align: center;
+    background: #009d9d;
+    padding: 20px;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: calc( 50% - 120px );
+    margin: 20px;
+}
+
+.pagination button{
+    width: 80px;
+    margin: 0 10px;
+    background: aqua;
+    padding: 5px 0;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    transition: all .2s ease-in-out;
+}
+
+.pagination button:hover{
+    background: #004949;
+    color: white;
+}
+
+.episodes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

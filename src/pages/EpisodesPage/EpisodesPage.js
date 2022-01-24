@@ -9,7 +9,7 @@ const EpisodesPage = () => {
     const [numberOfPages, setNumberOfPages] = useState(1);
     const [episodes, setEpisodes] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams({});
-    const [curPage,setCurPage] = useState(1);
+    const [curPage,setCurPage] = useState(+searchParams.get("page"));
 
     useEffect(()=>{
         if (!+searchParams.get("page")){

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import './Layout.css'
 import {imageService} from "../../services/image.service";
@@ -18,7 +18,7 @@ const Layout = () => {
             </div>
             {image.url && <div className="image">
                 <img src={image.url} alt={image.tag}/>
-                <button onClick={(e) => getImage(image.tag)}>change</button>
+                <button onClick={() => getImage(image.tag)}>change</button>
             </div>}
 
         </div>

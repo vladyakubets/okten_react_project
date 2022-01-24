@@ -3,24 +3,38 @@ import React, {useEffect, useState} from 'react';
 import "./EpisodesPage.css"
 import {EpisodeService} from "../../services";
 import {Episode} from "../../components";
+import {useLocation, useParams, useSearchParams} from "react-router-dom";
 
 const EpisodesPage = () => {
-    const [page, setPage] = useState({current: 1, exists: null});
+    const [numberOfPages, setNumberOfPages] = useState(1);
     const [episodes, setEpisodes] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams({});
+    const [curPage,setCurPage] = useState(1);
+
+    useEffect(()=>{
+        if (!+searchParams.get("page")){
+            setSearchParams({page: 1})
+            return
+        }
+        setCurPage(+searchParams.get("page"))
+    },[])
 
     useEffect(() => {
-        EpisodeService.getByPage(page.current).then(value => {
-            setPage({...page, exists: value.info.pages})
+        EpisodeService.getByPage(curPage).then(value => {
             setEpisodes([...value.results])
+            setNumberOfPages(value.info.pages)
         })
-    }, [page.current])
+    }, [curPage])
 
     const changePage = (action) => {
-        if (action === 'Next' && page.current < page.exists) {
-            setPage({...page, current: page.current + 1})
+        const current = +searchParams.get("page")
+        if (action === 'Next' && current < numberOfPages) {
+            setSearchParams({ page: current + 1});
+            setCurPage(current + 1 )
         }
-        if (action === 'Previous' && page.current > 1) {
-            setPage({...page, current: page.current - 1})
+        if (action === 'Previous' && current > 1) {
+            setSearchParams({ page: current - 1});
+            setCurPage(current - 1 )
         }
     }
 
@@ -28,7 +42,7 @@ const EpisodesPage = () => {
         <div>
             <div className="page-info">
                 <h2>Rick and Morty API</h2>
-                <p>Episodes (page: {page.current})</p>
+                <p>Episodes (page: {curPage})</p>
             </div>
             <div className="episodes">{episodes.map(episode => <Episode key={episode.id} episode={episode}/>)}</div>
             <div className="pagination">

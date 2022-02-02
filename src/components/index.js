@@ -1,0 +1,7 @@
+export * from "./Car/Car"
+export * from "./Comment/Comment"
+export * from "./Form/Form"
+export * from "./Header/Header"
+export * from "./Layout/Layout"
+export * from "./User/User"
+export * from "./Post/Post"

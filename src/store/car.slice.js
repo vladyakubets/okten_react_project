@@ -4,7 +4,7 @@ import {carService} from "../services";
 
 export const getCars = createAsyncThunk(
     'carSlice/getCars',
-    async ({rejectWithValue}) => {
+    async (_,{rejectWithValue}) => {
         try {
             return await carService.getAll()
         } catch (e) {
@@ -15,12 +15,12 @@ export const getCars = createAsyncThunk(
 
 export const createCar = createAsyncThunk(
     'carSlice/createCar',
-    async ({car}, {dispatch}) => {
+    async ({car}, {dispatch, rejectWithValue}) => {
         try {
             const newCar = await carService.create(car)
             dispatch(addCar({car: newCar}))
         } catch (e) {
-            console.log(e)
+            rejectWithValue(e)
         }
     }
 )
@@ -87,6 +87,10 @@ const carSlice = createSlice({
             state.cars = action.payload
         },
         [getCars.rejected]: (state) => {
+            state.status = 'rejected'
+            state.error = true
+        },
+        [createCar.rejected]:(state) => {
             state.status = 'rejected'
             state.error = true
         },

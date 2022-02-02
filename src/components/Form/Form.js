@@ -1,12 +1,17 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
+import {joiResolver} from "@hookform/resolvers/joi";
 
 import {createCar, setForm, updateCar} from "../../store";
+import {CarValidator} from "../../validators";
 
 const Form = () => {
     const {form} = useSelector(state => state['carReducer']);
-    const {handleSubmit, reset, register, setValue} = useForm();
+    const {handleSubmit, reset, register, setValue, formState: {errors}} = useForm({
+        resolver: joiResolver(CarValidator),
+        mode: "onTouched"
+    });
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -44,6 +49,9 @@ const Form = () => {
                 <button>{form ? "update" : "add"}</button>
                 {form && <button onClick={resetForm}>reset update</button>}
             </form>
+            {errors.model && <div>Model: {errors.model.message}</div>}
+            {errors.price && <div>Price: {errors.price.message}</div>}
+            {errors.year && <div>Year: {errors.year.message}</div>}
         </div>
     );
 };

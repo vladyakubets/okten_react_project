@@ -1,9 +1,10 @@
-.paginationBtns{
+.paginationBtns {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 }
-.pagination{
+
+.pagination {
     border: 2px solid var(--text-primary);
     margin: auto 5px;
     color: var(--text-primary);
@@ -14,12 +15,14 @@
     width: 60px;
     height: 30px;
 }
-.pagination:hover :not(button[disabled]){
+
+.pagination:hover :not(button[disabled]) {
     background-color: var(--text-primary);
     color: var(--text-secondary);
     cursor: pointer;
 }
-.pagination button{
+
+.pagination button {
     background: none;
     border: none;
     width: 100%;

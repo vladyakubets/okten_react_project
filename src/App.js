@@ -1,7 +1,7 @@
 import './App.css';
 import {Navigate, Route, Routes} from "react-router-dom";
-import {MoviePage, MoviesPage} from "./pages";
-import {Layout} from "./components";
+import {GenresPage, MoviePage, MoviesPage} from "./pages";
+import {Layout, MoviesByGenre} from "./components";
 import useLocalStorage from "use-local-storage";
 
 function App() {
@@ -20,6 +20,9 @@ function App() {
                     <Route path={'/'} element={<Navigate to={'movies'}/>}/>
                     <Route path={'movies'} element={<MoviesPage/>}/>
                     <Route path={'movies/:id'} element={<MoviePage/>}/>
+                    <Route path={'genres'} element={<GenresPage/>}>
+                        <Route path={':id'} element={<MoviesByGenre/>}/>
+                    </Route>
                 </Route>
             </Routes>
         </div>

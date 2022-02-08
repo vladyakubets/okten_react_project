@@ -2,6 +2,11 @@
     max-width: 1200px;
     margin: 0 auto;
     min-height: calc(100vh - 70px);
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px 15px;
+}
+
+@media screen and (max-width: 540px) {
+    .main {
+        padding-top: 10px;
+    }
 }

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Badge from "react-simple-badges";
-import randomColor from "randomcolor";
-import {useSelector} from "react-redux";
-import "./ScoreMeter.css"
+import {useSelector} from 'react-redux';
+
+import './ScoreMeter.css'
+import {GenresBadges} from '../GenresBadges/GenresBadges';
 
 const MovieDescription = () => {
     const {movieDesc} = useSelector(state => state.movieDesc);
@@ -10,8 +10,8 @@ const MovieDescription = () => {
 
     const date = new Date(movieDesc?.release_date);
     const formattedDate = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`;
-    const formattedRevenue = `$${movieDesc?.revenue.toString().replace(/\B(=(\d{3})+(!\d))/g, ",")}`;
-    const formattedBudget = `$${movieDesc?.budget.toString().replace(/\B(=(\d{3})+(!\d))/g, ",")}`;
+    const formattedRevenue = `$${movieDesc?.revenue.toString().replace(/\B(=(\d{3})+(!\d))/g, '', '')}`;
+    const formattedBudget = `$${movieDesc?.budget.toString().replace(/\B(=(\d{3})+(!\d))/g, '', '')}`;
     const formattedRuntime = `${movieDesc?.runtime} minutes`;
     const strokeDash = 339.292;
 
@@ -19,20 +19,17 @@ const MovieDescription = () => {
         setTimeout(() => {
             setAnimateMeter(true);
         }, 200);
-
     }, [])
 
     return (
-        <div className={'desc-container'}>
+        <div className={'desc-container container'}>
             <div>
-                <div>{movieDesc.genres.map(({name, id}) => <Badge key={id} name={name}
-                                                                  style={{color: 'white'}}
-                                                                  backgroundColor={`${randomColor()}`}/>)}</div>
+                <GenresBadges genres={movieDesc.genres}/>
                 <div>
                     <p>{movieDesc.overview}</p>
                 </div>
             </div>
-            <div className={"info"}>
+            <div className={'info'}>
                 <div>
                     <div><b>Release Date:</b> {formattedDate}</div>
                     <div><b>Revenue:</b> {formattedRevenue}</div>
@@ -41,10 +38,10 @@ const MovieDescription = () => {
                 </div>
                 <div className={'score'}>
                     <span>{movieDesc.vote_average}</span>
-                    <svg className={"scoreMeter"}>
-                        <circle className={"scoreMeterCircle"}/>
+                    <svg className={'scoreMeter'}>
+                        <circle className={'scoreMeterCircle'}/>
                         <circle
-                            className={"scoreMeterValue"}
+                            className={'scoreMeterValue'}
                             style={{
                                 strokeDasharray: strokeDash.toString(),
                                 strokeDashoffset:

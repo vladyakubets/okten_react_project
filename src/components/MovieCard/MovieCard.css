@@ -1,7 +1,7 @@
 .movie-card {
     display: flex;
     flex-direction: column;
-    max-width: 18%;
+    width: 212px;
     max-height: 320px;
     margin: 10px;
 }
@@ -18,7 +18,7 @@
 
 .image h3 {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     height: 100%;
     width: 100%;
     text-align: center;
@@ -43,11 +43,19 @@
 
 .image:hover h3 {
     visibility: visible;
-
 }
 
 .image:hover img {
     filter: blur(3px);
     -webkit-filter: blur(3px);
+}
 
+@media screen and (max-width: 600px) {
+    .movie-card {
+        display: flex;
+        flex-direction: column;
+        width: 110px;
+        max-height: 180px;
+        margin: 10px;
+    }
 }

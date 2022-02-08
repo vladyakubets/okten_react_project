@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import "./UserInfo.css";
+import './UserInfo.css';
 
 const UserInfo = () => {
     return (
-        <div className={"user"}>
-            <img src="/avatar.png" alt="image"/>
+        <div className={'user'}>
+            <img src='/avatar.png' alt='image'/>
             <p>Vlad Yakubets</p>
         </div>
     );

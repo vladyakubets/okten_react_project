@@ -9,3 +9,16 @@
     padding: 15px 20px;
     color: var(--text-primary);
 }
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 10px;
+    color: var(--text-primary);
+    font-weight: bold;
+}

@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {getMovies} from "../../store";
-import {MovieCard, PaginationButton} from "../../components";
-import {useSearchParams} from "react-router-dom";
-import './MoviesPage.css'
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useSearchParams} from 'react-router-dom';
+
+import {getMovies} from '../../store';
+import {MovieCards, Pagination} from '../../components';
 
 const MoviesPage = () => {
-    const dispatch = useDispatch();
-    const [searchParams, setSearchParams] = useSearchParams();
     const {movies, total_pages, status} = useSelector(state => state.movies);
+    const dispatch = useDispatch();
+
+    const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
         if (!searchParams.get('page')) {
@@ -22,20 +23,15 @@ const MoviesPage = () => {
             behavior: 'smooth'
         })
     }, [searchParams])
+
     return (
         <div>
-            {status === "fulfilled" ? <div>
-                    <div className={'movies-container'}>{movies.map(movie => <MovieCard key={movie.id}
-                                                                                        movie={movie}/>)}</div>
-                    <div className={"paginationBtns"}>
-                        <PaginationButton to={`?page=${+searchParams.get('page') - 1}`}
-                                          disabled={searchParams.get('page') <= 1}>prev</PaginationButton>
-                        <PaginationButton to={`?page=${+searchParams.get('page') + 1}`}
-                                          disabled={searchParams.get('page') >= total_pages}>next</PaginationButton>
-                    </div>
+            {status === 'fulfilled' ? <div className={'container'}>
+                    <MovieCards movies={movies}/>
+                    <Pagination total_pages={total_pages}/>
                 </div>
                 :
-                <div className={"loading"}>
+                <div className={'loading'}>
                     Loading...
                 </div>
             }

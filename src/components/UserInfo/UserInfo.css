@@ -10,3 +10,13 @@
     height: 50px;
     border-radius: 50%;
 }
+
+@media screen and (max-width: 600px) {
+    .user > p {
+        display: none;
+    }
+
+    .user {
+        width: unset;
+    }
+}

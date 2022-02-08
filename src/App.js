@@ -1,11 +1,29 @@
 import './App.css';
+import {Navigate, Route, Routes} from "react-router-dom";
+import {MoviePage, MoviesPage} from "./pages";
+import {Layout} from "./components";
+import useLocalStorage from "use-local-storage";
 
 function App() {
-  return (
-    <div className="App">
+    const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
-    </div>
-  );
+    const switchTheme = () => {
+        const newTheme = theme === "dark" ? "light" : "dark"
+        setTheme(newTheme)
+    }
+
+    return (
+        <div className="App" data-theme={theme}>
+            <Routes>
+                <Route path={'/'} element={<Layout switchTheme={switchTheme} theme={theme}/>}>
+                    <Route path={'/'} element={<Navigate to={'movies'}/>}/>
+                    <Route path={'movies'} element={<MoviesPage/>}/>
+                    <Route path={'movies/:id'} element={<MoviePage/>}/>
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

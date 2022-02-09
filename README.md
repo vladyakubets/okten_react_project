@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Getting Started with TMDB React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Dont forget to create .env file in root folder
+
+Inside:
+###`REACT_APP_API_KEY=your_api_key`
 
 ## Available Scripts
 
@@ -14,7 +18,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-## Dont forget to create .env file in root folder
-
-Inside:
-###REACT_APP_API_KEY=your_api_key

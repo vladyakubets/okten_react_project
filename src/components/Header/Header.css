@@ -29,8 +29,7 @@
     align-items: center;
     justify-content: end;
     margin-right: 20px;
-    cursor: pointer;
 }
-.search > svg{
+.search > span{
     cursor: pointer;
 }

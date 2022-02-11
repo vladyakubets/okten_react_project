@@ -1,8 +1,8 @@
 .user {
-    width: 180px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 .user img {
@@ -11,12 +11,26 @@
     border-radius: 50%;
 }
 
-@media screen and (max-width: 600px) {
-    .user > p {
-        display: none;
-    }
+.drop-down-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    cursor: default;
+}
 
-    .user {
-        width: unset;
-    }
+.drop-down {
+    background-color: var(--background);
+    position: absolute;
+    top: 86px;
+    right: 7px;
+    padding: 15px 10px;
+    min-width: 150px;
+    cursor: default;
+
+}
+
+.drop-down > p {
+    margin-bottom: 10px;
 }

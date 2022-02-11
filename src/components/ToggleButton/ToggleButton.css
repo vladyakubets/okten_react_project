@@ -40,10 +40,4 @@ label:before {
   left: 3px;
 }
 
-@media screen and (max-width: 600px) {
-  .dark-mode-toggle > div {
-    display: none;
-  }
-}
-
 /*# sourceMappingURL=ToggleButton.css.map */

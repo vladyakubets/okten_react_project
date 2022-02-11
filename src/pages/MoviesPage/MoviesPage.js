@@ -7,6 +7,7 @@ import {MovieCards, Pagination} from '../../components';
 
 const MoviesPage = () => {
     const {movies, total_pages, status} = useSelector(state => state.movies);
+    const {movies: foundMovies, status: foundStatus} = useSelector(state => state.searchMovies);
     const dispatch = useDispatch();
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -27,7 +28,7 @@ const MoviesPage = () => {
     return (
         <div>
             {status === 'fulfilled' ? <div className={'container'}>
-                    <MovieCards movies={movies}/>
+                    <MovieCards movies={(foundMovies.length > 0 && foundStatus === 'fulfilled') ? foundMovies : movies}/>
                     <Pagination total_pages={total_pages}/>
                 </div>
                 :

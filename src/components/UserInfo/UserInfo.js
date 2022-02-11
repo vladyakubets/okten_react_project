@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './UserInfo.css';
+import {ToggleButton} from '../ToggleButton/ToggleButton';
 
-const UserInfo = () => {
+const UserInfo = ({switchTheme, theme}) => {
+    const [isOpened, setIsOpened] = useState(false);
+
     return (
-        <div className={'user'}>
+        <div className={'user'} onClick={() => setIsOpened(!isOpened)}>
             <img src='/avatar.png' alt='image'/>
-            <p>Vlad Yakubets</p>
+            <div className={'drop-down-container'} style={{display: isOpened ? "block" : "none"}}>
+                <div className={'drop-down'} onClick={e => e.stopPropagation()}>
+                    <p>Vlad Yakubets</p>
+                    <ToggleButton switchTheme={switchTheme} theme={theme}/>
+                </div>
+            </div>
         </div>
     );
 };

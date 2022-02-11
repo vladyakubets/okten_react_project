@@ -8,4 +8,5 @@ export const MoviesService = {
     getSimilar: (id) => AxiosService.get(`${urls.movie}/${id}/similar`).then(value => value.data),
     getByGenreId: (id,page) => AxiosService.get(`${urls.movies}`,{params: {with_genres: id, page}}).then(value => value.data),
     getGenres:() => AxiosService.get(`/genre/movie/list`).then(value => value.data),
+    getBySearch: (query) => AxiosService.get(urls.search, {params:{query: query}}).then(value => value.data)
 }
